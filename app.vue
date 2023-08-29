@@ -15,7 +15,8 @@ const logout = () => {
 </script>
 
 <template>
-  <NuxtExampleLayout class="h-50" example="composables/use-cookie">
+  <h1 class="text-3xl mb-3"> POC Cookies App 1
+      </h1>
     <template v-if="user">
       <h1 class="text-3xl mb-3">
         Welcome, {{ user.name }}! 👋
@@ -35,13 +36,12 @@ const logout = () => {
       <h1 class="text-3xl mb-3">
         Login
       </h1>
-      <NTextInput v-model="name" n="lg" class="w-100 m-auto" placeholder="Enter your name..." @keypress.enter="login()" />
+      <NTextInput v-model="name" n="lg" class="w-100 m-left" placeholder="Enter your name..." @keypress.enter="login()" />
       <div class="mt-3">
         <NButton icon="carbon:user" :disabled="!name" @click="login">
           Log in
         </NButton>
       </div>
     </template>
-  </NuxtExampleLayout>
 </template>
 
