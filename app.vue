@@ -2,25 +2,26 @@
 
 <script setup lang="ts">
 
-const loading = ref(true)
+  const loading = ref(true)
 
-// Expire dans un an
-const expires = new Date();
-expires.setTime(expires.getTime() + (365 * 24 * 60 * 60 * 1000));
+  // Expire dans un an
+  const expires = new Date();
+  expires.setTime(expires.getTime() + (365 * 24 * 60 * 60 * 1000));
 
-const sunrise = useCookie('sunriseATE', { expires });
+  const sunrise = useCookie('sunriseATE', { expires });
 
-const reload = () => {
-  location.reload();
-}
+  // Reload de la page avec même URL
+  const reload = () => {
+    location.reload();
+  }
 
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * max) + min;
-}
+  // Retourne un integer aléatoire en min et max
+  function getRndInteger(min, max) {
+    return Math.floor(Math.random() * max) + min;
+  }
 
-
-
-  var userSelected = getRndInteger(1, 100);
+  // Assignation valeur aléatoire
+  const userSelected = getRndInteger(1, 100);
   if (userSelected < 31) {
     sunrise.value = (sunrise.value || 0) + 1
   }
