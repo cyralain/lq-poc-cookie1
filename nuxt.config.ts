@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/ui'
   ],
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  ssr: false
 })
