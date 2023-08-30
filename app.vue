@@ -37,7 +37,7 @@ function getRndInteger(min, max) {
       </h1>
       <div>
         <NTip n="green6" icon="carbon:idea" class="inline-flex">
-          Le cookie 'sunrise' a été créé et en cliquant sur le bouton, la page va se recharger. Le A10 va détecter le cookie et vous serez diriger vers ATE!
+          Le cookie 'sunrise' a été créé et en cliquant sur le bouton, la page va se recharger. Le A10 va détecter le cookie et vous serez dirigé vers ATE!
         </NTip>
       </div>
       <div class="mt-3">
