@@ -21,8 +21,10 @@
   // Assignation valeur aléatoire
   const userSelected = getRndInteger(1, 100);
   
+  var cookieAlreadyExist = false; 
   if (sunrise.value) {
     //si cookie exist, on fait rien
+    cookieAlreadyExist = true; 
   } else {
       // Pas de cookie, on set la valeur aléatoire
       sunrise.value = userSelected;
@@ -32,11 +34,24 @@
 
 <template>
   <h1 class="text-3xl mb-3"> POC Cookies - Déploiement progressif avec A10</h1>
-  <div>Valeur aléatoire: {{ userSelected }}</div>
 
-  <template v-if="sunrise < 31">
+  <template v-if="cookieAlreadyExist">
       <h1 class="text-3xl mb-3">
-        Vous avez été selectionné pour ATE! 👋👋👋
+        Cookie existe déjà... pour ATE! 👋👋👋<br />
+        <div>Valeur aléatoire présente: {{ sunrise }}</div>
+
+      </h1>
+      <div class="mt-3">
+        <NButton n="red" icon="carbon:logout" @click="reload">
+          Reload
+        </NButton>
+      </div>
+    </template>
+
+    <template v-else>
+      <h1 class="text-3xl mb-3">
+        Cookie vient d'être créé pour ATE! 👋👋👋 <br />
+        <div>Valeur aléatoire: {{ userSelected }}</div>
       </h1>
       <div>
         <NTip n="green6" icon="carbon:idea" class="inline-flex">
@@ -47,14 +62,6 @@
         <NButton n="red" icon="carbon:logout" @click="reload">
           Reload
         </NButton>
-      </div>
-    </template>
-
-    <template v-else>
-      <div>
-        <NTip n="green6" icon="carbon:idea" class="inline-flex">
-          Pas sélectionné, cookie 'sunriseATE' = 'non'!
-        </NTip>
       </div>
     </template>
 </template>
