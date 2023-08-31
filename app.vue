@@ -23,11 +23,9 @@
   
   if (sunrise.value) {
     //si cookie exist, on fait rien
-  } else if (userSelected < 31) {
-      // Pas de cookie alors on set à oui ou non
-      sunrise.value = 'oui';
   } else {
-      sunrise.value = 'non';
+      // Pas de cookie, on set la valeur aléatoire
+      sunrise.value = userSelected;
   }
 
 </script>
@@ -36,7 +34,7 @@
   <h1 class="text-3xl mb-3"> POC Cookies - Déploiement progressif avec A10</h1>
   <div>Valeur aléatoire: {{ userSelected }}</div>
 
-  <template v-if="sunrise === 'oui'">
+  <template v-if="sunrise < 31">
       <h1 class="text-3xl mb-3">
         Vous avez été selectionné pour ATE! 👋👋👋
       </h1>
